@@ -8,7 +8,27 @@
 RiiTag-RPC allows you to show your Discord friends what you're playing on your Wii or Wii U by connecting to your [RiiTag](https://riitag.t0g3pii.de/) account.
 
 ## Instructions
-1. Grab the latest release from [here](https://github.com/t0g3pii/RiiTag-RPC/releases/latest).
+1. Grab the latest release from [here](https://github.com/t0g3pii/RiiTag-RPC/releases/latest) or build manually.
+
+    Build instructions:
+    - Requirements: Python 3.11
+
+    **Windows:**
+    ```powershell
+    py -3.11 -m venv .venv
+    .\.venv\Scripts\python.exe -m pip install -r requirements.txt pyinstaller
+    .\.venv\Scripts\python.exe -m PyInstaller riitag-rpc.spec
+    .\dist\riitag-rpc.exe
+    ```
+
+    **macOS and Linux:**
+    ```bash
+    python3.11 -m venv .venv # Alternatively using uv: uv venv --python 3.11 .venv
+    .venv/bin/python -m pip install -r requirements.txt pyinstaller # Using uv: uv pip install --python .venv/bin/python -r requirements.txt pyinstaller
+    .venv/bin/python -m PyInstaller riitag-rpc.spec
+    ./dist/riitag-rpc
+    ```
+    Executable will be located in `dist/`.
 2. Follow the instructions available [here](/GUIDE.md#riitag-rpc).
 
 ## Running on Raspberry Pi
